@@ -56,6 +56,9 @@ $ docker compose up -d
 
 # Check running container
 $ docker ps
+
+# or
+$docker compose ps
 ```
 
 ## Run tests
