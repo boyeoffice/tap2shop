@@ -1,0 +1,32 @@
+
+services:
+  tap2shop_app:
+    build: .
+    container_name: tap2shop_app
+    restart: always
+    ports:
+      - '3000:3000'
+    depends_on:
+      - tap2shop_db
+    environment:
+      DATABASE_HOST: tap2shop_db
+      DATABASE_PORT: 5432
+      DATABASE_USER: postgres
+      DATABASE_PASSWORD: postgres
+      DATABASE_NAME: tap2shop_db
+
+  tap2shop_db:
+    image: postgres:16
+    container_name: tap2shop_db
+    restart: always
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: tap2shop_db
+    ports:
+      - '5433:5432'
+    volumes:
+      - tap2shop_pgdata:/var/lib/postgresql/data
+
+volumes:
+  tap2shop_pgdata:
