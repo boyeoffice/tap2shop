@@ -1,4 +1,4 @@
-import { AppDataSource } from '../databases/data-source';
+import { AppDataSource } from '../database/data-source';
 
 export const databaseProviders = [
   {

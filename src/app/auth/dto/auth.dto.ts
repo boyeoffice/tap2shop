@@ -1,15 +1,6 @@
 import { IsEmail, IsString, MinLength, IsNotEmpty } from 'class-validator';
 
-
-export class AuthPayloadDto {
-    username: string;
-    password: string;
-}
-
-
 export class RegisterDto {
- 
-
   @IsEmail()
   @IsNotEmpty()
   email!: string;
@@ -18,7 +9,6 @@ export class RegisterDto {
   @MinLength(6)
   @IsNotEmpty()
   password!: string;
-
 }
 
 export class LoginDto {
@@ -31,4 +21,3 @@ export class LoginDto {
   @IsNotEmpty()
   password!: string;
 }
-
